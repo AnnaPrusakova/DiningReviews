@@ -19,7 +19,7 @@ public class User {
   @GeneratedValue
   private Long id;
 
-  private String name;
+  private String displayName;
   private String city;
   private String state;
   private String zipCode;
