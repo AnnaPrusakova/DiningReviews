@@ -9,14 +9,13 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table
+@Table(name = "users")
 @Getter
 @Setter
 @RequiredArgsConstructor
 public class User {
-
-  @Id
   @GeneratedValue
+  @Id
   private Long id;
 
   private String displayName;

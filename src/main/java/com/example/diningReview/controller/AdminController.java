@@ -25,7 +25,8 @@ public class AdminController {
   }
 
   @PutMapping("/reviews/{reviewId}")
-  public void setReview(@PathVariable Long reviewId, @RequestBody AdminReviewAction adminReviewAction) {
+  public void setReview(
+      @PathVariable Long reviewId, @RequestBody AdminReviewAction adminReviewAction) {
     adminService.setReview(reviewId, adminReviewAction);
   }
 }

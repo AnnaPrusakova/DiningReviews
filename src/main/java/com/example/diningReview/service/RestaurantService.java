@@ -29,7 +29,7 @@ public class RestaurantService {
     Optional<Restaurant> optionalRestaurant =
         restaurantRepository.findRestaurantsByNameAndZipCode(
             restaurant.getName(), restaurant.getZipCode());
-    if (optionalRestaurant.isEmpty()) {
+    if (optionalRestaurant.isPresent()) {
       throw new ResponseStatusException(HttpStatus.CONFLICT);
     }
 
@@ -54,7 +54,7 @@ public class RestaurantService {
     validateZipCode(zipcode);
 
     Iterable<Restaurant> restaurants;
-    if (allergy.equalsIgnoreCase("peanuts")) {
+    if (allergy.equalsIgnoreCase("peanut")) {
       restaurants =
           restaurantRepository.findRestaurantsByZipCodeAndPeanutScoreNotNullOrderByPeanutScore(
               zipcode);

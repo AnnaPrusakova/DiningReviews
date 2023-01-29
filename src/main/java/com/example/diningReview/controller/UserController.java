@@ -18,7 +18,7 @@ public class UserController {
   private final UserService userService;
 
   @PostMapping("/create")
-  public void createUniqueUser(User user) {
+  public void createUniqueUser(@RequestBody User user) {
     userService.createUniqueUser(user);
   }
 

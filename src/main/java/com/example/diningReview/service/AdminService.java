@@ -39,7 +39,8 @@ public class AdminService {
     }
 
     Review review = optionalReview.get();
-    Optional<Restaurant> optionalRestaurant = restaurantRepository.findById(review.getRestaurantId());
+    Optional<Restaurant> optionalRestaurant =
+        restaurantRepository.findById(review.getRestaurantId());
     if (optionalRestaurant.isEmpty()) {
       throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY);
     }
@@ -55,7 +56,9 @@ public class AdminService {
   }
 
   private void updateRestaurantReviewScores(Restaurant restaurant) {
-    List<Review> reviews = reviewRepository.findReviewsByRestaurantIdAndStatus(restaurant.getId(), ReviewStatus.ACCEPTED);
+    List<Review> reviews =
+        reviewRepository.findReviewsByRestaurantIdAndStatus(
+            restaurant.getId(), ReviewStatus.ACCEPTED);
     if (reviews.size() == 0) {
       throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR);
     }
@@ -82,7 +85,7 @@ public class AdminService {
       }
     }
 
-    int totalCount = peanutCount + dairyCount + eggCount ;
+    int totalCount = peanutCount + dairyCount + eggCount;
     int totalSum = peanutSum + dairySum + eggSum;
 
     float overallScore = (float) totalSum / totalCount;
@@ -105,5 +108,4 @@ public class AdminService {
 
     restaurantRepository.save(restaurant);
   }
-
 }

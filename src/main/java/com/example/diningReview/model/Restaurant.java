@@ -9,14 +9,12 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table
+@Table(name = "restaurant")
 @Getter
 @Setter
 @RequiredArgsConstructor
 public class Restaurant {
-  @GeneratedValue
-  @Id
-  private Long id;
+  @GeneratedValue @Id private Long id;
 
   private String name;
   private String state;

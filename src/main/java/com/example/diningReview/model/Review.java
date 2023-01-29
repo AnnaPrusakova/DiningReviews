@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table
+@Table(name = "review")
 @Getter
 @Setter
 @RequiredArgsConstructor
